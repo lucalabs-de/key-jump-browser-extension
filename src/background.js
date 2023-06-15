@@ -9,6 +9,7 @@ _browser.runtime.onMessage.addListener(async (request) => {
       _browser.storage.sync.get('activateNewTab', (options) => {
         _browser.tabs.create({
           url,
+          openerTabId: currentTab.id,
           index: currentTab.index + 1,
           active: options.activateNewTab,
         })
